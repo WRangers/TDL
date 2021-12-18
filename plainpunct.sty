@@ -1,0 +1,115 @@
+%% plainpnct.sty
+%% 中英文混排采用英文标点符号,对plain标点的间距控制
+%% Junxu Wang
+%% v1.0 2021-12-17
+
+% 在主文件先导入宏包ctex或xeCJK
+\xeCJKsetup{
+            CJKecglue  = {\hskip 0.1667em plus 0.08\baselineskip},
+			xCJKecglue = true,
+            PunctStyle = banjiao
+            }
+
+\xeCJKsetwidth{、}{0.7em}
+
+\XeTeXinterchartokenstate = 1
+
+% 重声明右半角英文符号类
+\xeCJKDeclareCharClass{HalfRight}{"22 , "25, "27 , "29, "5D , "7D , "232A}
+
+\newXeTeXintercharclass \PlainPunct
+% 西文标点
+\XeTeXcharclass "21 \PlainPunct % !
+\XeTeXcharclass "2C \PlainPunct % ,
+\XeTeXcharclass "2E \PlainPunct % .
+\XeTeXcharclass "3A \PlainPunct % :
+\XeTeXcharclass "3B \PlainPunct % ;
+\XeTeXcharclass "3F \PlainPunct % ?
+
+\newXeTeXintercharclass \NumberAlph
+% 数字
+\XeTeXcharclass "30 \NumberAlph % 0
+\XeTeXcharclass "31 \NumberAlph % 1
+\XeTeXcharclass "32 \NumberAlph % 2
+\XeTeXcharclass "33 \NumberAlph % 3
+\XeTeXcharclass "34 \NumberAlph % 4
+\XeTeXcharclass "35 \NumberAlph % 5
+\XeTeXcharclass "36 \NumberAlph % 6
+\XeTeXcharclass "37 \NumberAlph % 7
+\XeTeXcharclass "38 \NumberAlph % 8
+\XeTeXcharclass "39 \NumberAlph % 9
+% 大写字母
+\XeTeXcharclass "41 \NumberAlph % A
+\XeTeXcharclass "42 \NumberAlph % B
+\XeTeXcharclass "43 \NumberAlph % C
+\XeTeXcharclass "44 \NumberAlph % D
+\XeTeXcharclass "45 \NumberAlph % E
+\XeTeXcharclass "46 \NumberAlph % F
+\XeTeXcharclass "47 \NumberAlph % G
+\XeTeXcharclass "48 \NumberAlph % H
+\XeTeXcharclass "49 \NumberAlph % I
+\XeTeXcharclass "4A \NumberAlph % J
+\XeTeXcharclass "4B \NumberAlph % K
+\XeTeXcharclass "4C \NumberAlph % L
+\XeTeXcharclass "4D \NumberAlph % M
+\XeTeXcharclass "4E \NumberAlph % N
+\XeTeXcharclass "4F \NumberAlph % O
+\XeTeXcharclass "50 \NumberAlph % P
+\XeTeXcharclass "51 \NumberAlph % Q
+\XeTeXcharclass "52 \NumberAlph % R
+\XeTeXcharclass "53 \NumberAlph % S
+\XeTeXcharclass "54 \NumberAlph % T
+\XeTeXcharclass "55 \NumberAlph % U
+\XeTeXcharclass "56 \NumberAlph % V
+\XeTeXcharclass "57 \NumberAlph % W
+\XeTeXcharclass "58 \NumberAlph % X
+\XeTeXcharclass "59 \NumberAlph % Y
+\XeTeXcharclass "5A	\NumberAlph % Z
+% 小写字母
+\XeTeXcharclass "61 \NumberAlph % a
+\XeTeXcharclass "62 \NumberAlph % b
+\XeTeXcharclass "63 \NumberAlph % c
+\XeTeXcharclass "64 \NumberAlph % d
+\XeTeXcharclass "65 \NumberAlph % e
+\XeTeXcharclass "66 \NumberAlph % f
+\XeTeXcharclass "67 \NumberAlph % g
+\XeTeXcharclass "68 \NumberAlph % h
+\XeTeXcharclass "69 \NumberAlph % i
+\XeTeXcharclass "6A \NumberAlph % j
+\XeTeXcharclass "6B \NumberAlph % k
+\XeTeXcharclass "6C \NumberAlph % l
+\XeTeXcharclass "6D \NumberAlph % m
+\XeTeXcharclass "6E \NumberAlph % n
+\XeTeXcharclass "6F \NumberAlph % o
+\XeTeXcharclass "70 \NumberAlph % p
+\XeTeXcharclass "71 \NumberAlph % q
+\XeTeXcharclass "72 \NumberAlph % r
+\XeTeXcharclass "73 \NumberAlph % s
+\XeTeXcharclass "74 \NumberAlph % t
+\XeTeXcharclass "75 \NumberAlph % u
+\XeTeXcharclass "76 \NumberAlph % v
+\XeTeXcharclass "77 \NumberAlph % w
+\XeTeXcharclass "78 \NumberAlph % x
+\XeTeXcharclass "79 \NumberAlph % y
+\XeTeXcharclass "7A \NumberAlph % z
+
+% 西文标点与常规字符间距为一个空格
+\XeTeXinterchartoks \PlainPunct 0 = {\hskip 0.3333em plus 0.08\baselineskip}
+\XeTeXinterchartoks 0 \PlainPunct = {\hskip 0pt plus 0.08\baselineskip}
+
+% 西文标点与字符串的起点和终点边界间距为一个空格
+% 英文开启了xCJKecglue = true,这样如果标点与其他符号之间有空格的话就不会被调整为\,
+% 但是如果是"中文 ."这样,"中文"和"."之间的间距会被调整为CJKecglue,所以这里不能留空
+\XeTeXinterchartoks \PlainPunct 4095 = {\hskip 0.3333em plus 0.08\baselineskip}
+
+% 西文标点与数字和字母之间不添加空格
+\XeTeXinterchartoks \PlainPunct \NumberAlph = {\ignorespaces}
+
+% 常规字符与数字字母之间间距为CJKecglue
+\XeTeXinterchartoks 0 \NumberAlph = {\CJKecglue}
+\XeTeXinterchartoks \NumberAlph 0 = {\CJKecglue}
+
+% 段落行尾命令(end of paragraph)
+\newcommand{\eop}{\relax}
+% Bug:段落的末尾\PlainPunct符号集中的符号与前文的中文间距错误
+% 段落末尾添加一个\relax或间距命令可以暂时解决这个问题
