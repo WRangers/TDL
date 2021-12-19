@@ -2,6 +2,9 @@
 %% 中英文混排采用英文标点符号,对plain标点的间距控制
 %% Junxu Wang
 %% v1.0 2021-12-17
+%% v1.1 2021-12-18
+%% 取消0类字符集与plain标点字符集的间距设置
+%% 修改plain标点字符集的与0类字符集的弹性间距
 
 % 在主文件先导入宏包ctex或xeCJK
 \xeCJKsetup{
@@ -94,13 +97,9 @@
 \XeTeXcharclass "7A \NumberAlph % z
 
 % 西文标点与常规字符间距为一个空格
-\XeTeXinterchartoks \PlainPunct 0 = {\hskip 0.3333em plus 0.08\baselineskip}
-\XeTeXinterchartoks 0 \PlainPunct = {\hskip 0pt plus 0.08\baselineskip}
-
-% 西文标点与字符串的起点和终点边界间距为一个空格
-% 英文开启了xCJKecglue = true,这样如果标点与其他符号之间有空格的话就不会被调整为\,
-% 但是如果是"中文 ."这样,"中文"和"."之间的间距会被调整为CJKecglue,所以这里不能留空
-\XeTeXinterchartoks \PlainPunct 4095 = {\hskip 0.3333em plus 0.08\baselineskip}
+\XeTeXinterchartoks \PlainPunct 0 = {\hskip 0.3333em plus 0.08\baselineskip minus 0.08\baselineskip}
+% \XeTeXinterchartoks 0 \PlainPunct = {\hskip 0pt}
+% 添加这句会导致有些标点符号折行,出现在行首
 
 % 西文标点与数字和字母之间不添加空格
 \XeTeXinterchartoks \PlainPunct \NumberAlph = {\ignorespaces}
