@@ -87,7 +87,8 @@ cal=pxtx]{mathalpha}                % 数学花体设置
 
 \title{{\fontspec{Palatino}\LaTeX{}}{\CJKfontspec{方正小标宋简体}排版细节}\\%
 \fontspec{Palatino}Typography Detail with \LaTeX}
-\author{\small\fontspec{Zapfino}Junxu Wang}
+\author{{\small\fontspec{Zapfino}Junxu Wang}\\%
+\href{https://github.com/WRangers/TDL}{\texttt{https://github.com/WRangers/TDL}}}
 \date{2021年12月14日}
 
 \newcommand{\mytext}{《说文解字》书名.东汉许惯撰,三十卷,爲我国第一部有系统分析字形及考究字源的字书.按文字形体及偏旁构造分列五百四十部,首创部首编排法?\eop}
@@ -105,20 +106,21 @@ cal=pxtx]{mathalpha}                % 数学花体设置
 \footnote{最后更新于\today.\eop}
 \setcounter{footnote}{0}
 \renewcommand\thefootnote{\arabic{footnote}}
+
 本文以杜克大学的盖鹤麟编写的《\LaTeX{}科技文档排版》\cite{2} 为原型,辅以标准文件、其他琐碎的资料和笔者排版所积累的经验编写，供读者参考.\eop
 
 \section{总则}
 \begin{compactitem}[\hspace{1.02em}$\bullet$]
 	\item 采用格式与内容分离的排版方式.\\
-	例如,实数集合符号,定义\,\verb|\newcommand{\rset}{\mathbb{R}}|.这样带来的好处一是减少输入码字;二是一旦出版社、学校等方面因各种原因需要更换样式,只需要更改命令定义即可;三是可形成一套个人自定义的宏集,代码重用.
-	\item 采用交叉引用,利用宏包\,\verb|hyperref|\,得交叉引用具有超链接功能.\\
+	例如,实数集合符号,定义\,\verb|\newcommand{\rset}{\mathbb{R}}|.这样带来的好处一是减少输入码字;二是一旦出版社、学校等方面因某种原因需要更换样式,只需要更改命令定义即可;三是可形成一套个人自定义的宏集,代码重用.
+	\item 采用交叉引用,利用宏包\,\verb|hyperref|\,使交叉引用具有超链接功能.\\
 	\textsf{糟糕}:见下表.\\
 	\textsf{正确}:见表\sref{tab:bdfh}.
-	\item 中文科技论文排版采用英文半角标点符号,使形式统一(参见第\dref{sec:bdfh}节).虽然这不是国家标准所推崇的,但大多数期刊都是如此要求的.本文针对的也是中英文混排采用英文标点的情况,但大部分准则还是通用的.\eop
+	\item 中文科技论文排版采用英文半角标点符号,使形式统一(参见第\dref{sec:bdfh}节).虽然这不是国家标准所推崇的,但不少工程类中文期刊都是如此要求的.本文针对的也是中英文混排采用英文标点的情况,但大部分准则还是通用的.\eop
 \end{compactitem}
 
 \section{标点符号}\label{sec:bdfh}
-在只有中文而没有英文和数学公式的文档中,全部使用中文标点符号效果较佳;但如果文档既有中文、英文和数学公式,统一英文标点符号效果更好.中文所有而英文没有的标点符号,如顿号、书名号等,则仍采用中文符号.如果中英文混排,中文采用中文符号,则应该注意夹用英文的中文文本的标点符号用法\scite{4},不在此赘述.\eop
+在只有中文而没有英文和数学公式的文档中,全部使用中文标点符号效果较佳;但如果文档既有中文、英文,又有数学公式,统一使用英文标点符号效果更好.中文所有而英文没有的标点符号,如顿号、书名号等,则仍采用中文符号.如果中英文混排,中文采用中文符号,则应该注意夹用英文的中文文本的标点符号用法\scite{4},不在此赘述.\eop
 
 中文混排采用英文标点存在一个问题——因为英文的基线比中文的基线低,所以英文的括号和双引号在中文环境中较低,各种情况的比较见表\sref{tab:bdfh}.这个问题可以通过重新定义命令解决,但不是特别方便,目前也没有很好的解决方案.\eop
 % \begin{verbatim}
@@ -145,16 +147,16 @@ cal=pxtx]{mathalpha}                % 数学花体设置
 
 \begin{compactitem}[\hspace{1.02em}$\bullet$]
 	\item 连字符\\
-	连字符通过键入一个减号\,\keystroke{-}\,得到,用于复合词中,例如``daughter-in-law''和``X-ray''.减号则是把连字符放在数学模式中.\\
-	数学的减号这是将\,\keystroke{-}\,置于数学模式中,不要写成-5,而是$-5$.\eop
+	连字符通过键入一个\,\keystroke{-}\,符号得到,用于复合词中,例如``daughter-in-law''和``X-ray''.\\
+	数学的减号是将\,\keystroke{-}\,置于数学模式中,不要写成-5,而是$-5$.\eop
 	\item 连接号\\
-	连字符通过键入两个减号\,\keystroke{-}\,得到,用在像``pages 13--34''和``exercise 1.2.6--52''这样的数字区间方面.\\
+	连字符通过键入两个\,\keystroke{-}\,得到,用在像``pages 13--34''和``exercise 1.2.6--52''这样的数字区间方面.\\
 	\textsf{错误}:鲁迅(1881$\sim$1936)\\
 		\sj 物理-化学反应 \\
 	\textsf{正确}:鲁迅(1881--1936)\\
 		\sj 物理--化学反应
 	\item 破折号\\
-	中文段落中的破折号由输入法输入中文破折号得到,英文段落中的破折号通过输入三个减号\,\keystroke{-}\,得到.\eop
+	中文段落中的破折号由输入法输入中文破折号得到,英文段落中的破折号通过输入三个\,\keystroke{-}\,得到.\eop
 	\item 省略号\\
 	矩阵中使用三个竖点或者三个横点,还有三个斜点.\eop
 	$$
@@ -174,7 +176,7 @@ cal=pxtx]{mathalpha}                % 数学花体设置
 	…………用于汉语整段或诗行省略.\\
 	\textsf{错误}: $\pi=\num{3.141596}\ldots,$\\
 	\textsf{正确}: $\pi=\num{3.141596}\ldots\,,$\\
-	在省略号与逗号之前应插入一个小间距 \verb|\,|.\\
+	在省略号与逗号之前应插入一个小间距\,\verb|\,|.\\
 	以下是正确的使用示例:\eop
 	$$
 	\begin{gathered}
@@ -194,9 +196,9 @@ cal=pxtx]{mathalpha}                % 数学花体设置
 	x_{1} x_{2} \cdots x_{n}
 	\end{gathered}
 	$$
-	(错多了也就成了``标准''?!)省略号应与行的基线对齐;如果省略号的两侧是运算符,则应中间对齐.导入宏包\texttt{amssymb}后,命令$\dots$会自动判断应该居中还是与基线平齐(有些情况要手动设置,例如行间公式折行时).\eop
+	(错多了也就成了``标准''?!)省略号应与行的基线对齐;如果省略号的两侧是运算符,则应中间对齐.导入宏包\texttt{amssymb}后,命令\,\verb|\dots|\,会自动判断应该居中还是与基线平齐(有些情况要手动设置,例如行间公式折行时).\eop
 	\item 双引号\\
-	在\LaTeX{}中,英文的双引号通过输入 \verb|``''| 得到, \verb|``| 是两个重音符(一般位于键盘\,\keystroke{Esc} \,键下方, \keystroke{Tab}\,键上方); \verb|''| 是两个单引号.中文双引号则是输入法在中文标点环境下直接输入\verb|“”|得到.\eop
+	在\LaTeX{}中,英文的双引号通过输入\,\verb|``''|\,得到, \verb|``|\,是两个重音符(一般位于键盘\,\keystroke{Esc}\,键下方, \keystroke{Tab}\,键上方); \verb|''|\,是两个单引号.中文双引号则是输入法在中文标点环境下直接输入\,\verb|“”|\,得到.\eop
 	\item 外文、阿拉伯数之间的并列关系不用顿号,用逗号,如1, 2或a, b;如果并列词中有汉字,则使用顿号,注意不同层次的并列应以顿号和逗号加以区别,不能一律用顿号.\\
 	\textsf{错误}: 10以内的质数是2、3、5、7.\\
         \sj 宗教,战争,农业,牧业和手工业.\\
@@ -209,14 +211,14 @@ cal=pxtx]{mathalpha}                % 数学花体设置
 			\verb|$a$, $b$, $c$|         & $a$, $b$, $c$  & \ding{51}\\
 		\end{tabular}
 	\end{center}
-	数学环境会忽略所有的空格,在标点符号处断开数学环境不仅可以得到正确的间距,也便于折行.如果句末是数学环境,标点符号应在数学环境外,虽然二者几乎没有差别,但后者才是良好的排版习惯.\eop
+	数学环境会忽略所有的空格,在标点符号处断开数学环境不仅可以得到正确的间距,也便于折行.如果句末是数学环境,标点符号应在数学环境外,虽然二者在默认情况下几乎没有差别,但后者才是良好的排版习惯.\eop
 	\begin{center}
 		\begin{tabular}{lrc}
 			\verb|结果是$a+b+c.$所以|  & 结果是$a+b+c.$所以 & \ding{55}\\
 			\verb|结果是$a+b+c$.所以|  & 结果是$a+b+c$.所以  & \ding{51}\\
 		\end{tabular}
 	\end{center}
-	如果确实要在数学环境中使用标点符号(一般是逗号),应在后面加一个小间距 \verb|\,|.
+	如果确实要在数学环境中使用标点符号(一般是逗号),应在后面加一个小间距\,\verb|\,|.
 	\begin{center}
 		\begin{tabular}{lrc}
 			\verb|$A,   B,   C$|  & $A,B,C$ & \ding{55}\\
@@ -242,7 +244,7 @@ cal=pxtx]{mathalpha}                % 数学花体设置
 	其中
 	$$
 	f(x)=\frac{\alpha \beta}{\alpha+\beta}
-	\begin{cases}x^{\beta-1}\mpunct{,} & 0<x \leqslant 1\mpunct{,}  \\
+	\begin{cases}x^{\beta-1}\mpunct{,} & 0<x \leqslant 1\mpunct{;}  \\
 		 x^{-\alpha-1}\mpunct{,}  & x \geqslant 1 \mpunct{.} \end{cases}
 	$$
 	分段函数的标点也不要直接加在最后面,例如,\eop
@@ -260,14 +262,14 @@ cal=pxtx]{mathalpha}                % 数学花体设置
 	$$
 	\quad\,\frac{2 \nu_{\min }}{c} \leqslant k_{r} \leqslant \frac{2 \nu_{\max }}{c}\mpunct{.}
 	$$
-	行间公式的标点符号最好在前面加入一个小间距 \verb|\,|,这样不易混淆(特别是句点).\phantomsection\label{hjjjpage}\\
+	行间公式的标点符号最好在前面加入一个小间距\,\verb|\,|,这样不易混淆(特别是句点).\phantomsection\label{hjjjpage}\\
 	国内出版社一般都没有给行间公式添加标点符号,这是一个陋习.\eop
 \end{compactitem}
 
 标点符号的其他用法请参考GB/T 15834-2011《标点符号用法》国家标准.\eop
 
 \section{间距控制}
-部分间距控制散布在其他节内容中.\eop
+部分间距控制说明散布在其他节内容中.\eop
 \begin{compactitem}[\hspace{1.02em}$\bullet$]
 	\item 句点\\
 	\textsf{错误}: \verb|Prof. Duke|\\
@@ -276,16 +278,16 @@ cal=pxtx]{mathalpha}                % 数学花体设置
 	\sj  \verb|This is NASA\@. The next sentence.|\\
 	Prof.\ Duke中的句点并不代表句子的结束,在句点后面放置\,\verb*|\ |\,表示一般的空格.也可以输入\,\verb|Prof.~Duke|\,达到同样的效果,不同之处在于在英文中\,\verb|~|\,表示一个不可折行的空格,而\,\verb|\|\texttt{\textvisiblespace}\,是可折行的.但中文宏包\texttt{C\TeX{}}后对\,\verb|~|\,进行了重定义,使其也可以折行,所以二者便没有了区别.\\
 	一般``Mr.'', ``Mrs.'', ``Ms.'', ``Prof.'', ``Dr.'', ``Fig.'', ``Sec.'', ``a.k.a'', ``et al.'', ``Q.E.D.'', ``viz.'', ``w.r.t'', ``cf.'', ``vs.'', ``ect.'', ``i.e.''和``e.g.''等缩略词的句点不代表句子结束,所以要在后面添加一个\,\verb|\|\,或\,\verb|~|,并且要避免称谓、头衔这类词(包括``Fig.''和``Sec.'')与后面的衔接部分在句点处折行,由于\texttt{C\TeX}对\,\verb|~|\,重定义的原因,这需要排版者自行掌控.\\
-	采用Chicago style的话,在``i.e.''和``e.g.''后面加一个英文逗号可以避免将句点判断为句子结束的问题,具体要看期刊的要求,一般将这种常用命令定义为宏更好.\\
-	英文人名之间一般也不能折行,纯英文排版中应该是\texttt{Junxu~Wang},引入\texttt{C\TeX}宏包后则需要排版者自行掌控.\\
+	采用Chicago style的话,在``i.e.''和``e.g.''后面加一个英文逗号可以避免将句点判断为句子结束的问题,具体要看期刊的要求,一般将这种常用的词语定义为宏更好(有些期刊模板已经定义好,注意阅读投稿要求).\\
+	英文人名之间一般也不能折行,纯英文排版中应该是\,\verb|Junxu~Wang|,引入\texttt{C\TeX}宏包后则需要排版者自行掌控.\\
 	最后一个字母为大写字母的情况下, \LaTeX{}并不将大写字母之后的句点理解为句点,而命令\,\verb|\@|\,表示句子在这里结束,使得句点后的间距正确.\\
-	有人不喜欢这个规则(例如法国人),如果要中止这种判断的话,可以在文稿的导言区加上 \verb|\frenchspacing|.
-	\item 中文标点后面接一个英文标点时,应该加上 \verb|\!|.\\
+	有人不喜欢这个规则(例如法国人),如果要中止这种判断的话,可以在文稿的导言区加上\,\verb|\frenchspacing|.
+	\item 中文标点后面接一个英文标点时,应该加上\,\verb|\!|.\\
 	\textsf{错误}:精调文字和数学公式（也正是这本小册子的内容）.\quad \verb|）.|\\
 	\textsf{正确}:精调文字和数学公式（也正是这本小册子的内容）\!.\,\quad \verb|）\!.|\\
 	但还是建议统一使用英文标点(输入法可以设置统一英文标点).\\
 	\sj 精调文字和数学公式(也正是这本小册子的内容).\qquad \verb|).|
-	\item 英文冒号与英文左双引号之间一般要插入一个间距 \verb|\,|.\\
+	\item 英文冒号与英文左双引号之间一般要插入一个间距\,\verb|\,|.\\
 	\textsf{错误}:他说:``\LaTeX{}很折腾!''\\
 	\textsf{正确}:他说:\,``\LaTeX{}很折腾!''\\
 	英文冒号加中文左双引号也是如此.\\
@@ -293,11 +295,11 @@ cal=pxtx]{mathalpha}                % 数学花体设置
 	\textsf{正确}:他说:\,“\LaTeX{}很折腾!”\\
 	宏包\texttt{C\TeX{}}会正确处理中文冒号加中文左双引号的情况,无需手动插入间距.\\
 	\textsf{正确}:他说：“\LaTeX{}很折腾!”\\
-	宏包 \verb|xeCJK| 可以通过命令: \verb|\xeCJKsetkern{：}{“}{0.3em}| 设置组合符号宽度(具体参考\stcite{11页}{16}).
+	宏包\,\verb|xeCJK|\,可以通过命令:\,\verb|\xeCJKsetkern{：}{“}{0.3em}|\,设置组合符号宽度(具体参考\stcite{11页}{16}).
 	\item 中英文混排采用英文标点时,要注意标点符号与数字、数学环境和字母相连时要添加空格;英文和括号之间也要添加空格(这是英文排版的规则).\\
 	\textsf{错误}: A,$B$,1,C(This is C.)\\
 	\textsf{正确}: A, $B$, 1, C (This is C.)\\
-	\item 英文中采用本文的参考样式(例如, [1])时,因为参考文献引用处一般不折行,所以要在引用命令前加一个不可折行的空格$~$,其后是可折行的普通空格.图、表、章节号和公式参考引用也是如此.由于中文宏包\texttt{C\TeX{}}对不可折行空格 \verb|~| 做了重定义,失去了不可折行功能,所以需要排版者自行控制.如果参考引用衔接的是标点符号,则无需再添加空格,例如:\\
+	\item 英文中采用本文的参考样式(例如, [1])时,因为参考文献引用处一般不折行,所以要在引用命令前加一个不可折行的空格$~$,其后是可折行的普通空格.图、表、章节号和公式参考引用也是如此.由于中文宏包\texttt{C\TeX{}}对不可折行空格\,\verb|~|\,做了重定义,失去了不可折行功能,所以需要排版者自行控制.如果参考引用衔接的是标点符号,则无需再添加空格,例如:\\
 	\verb|结果见表~\ref{tab:1}␣的第一列,具体推导参见附录~\ref{app:1}.|\\
 	实际上宏包\texttt{C\TeX{}}会自动在参考引用与文字之间添加一个间距(默认为一个空格),但其后的间距需要排版者自己添加.\eop
 	\begin{center}
@@ -320,7 +322,7 @@ cal=pxtx]{mathalpha}                % 数学花体设置
 	% 	}
 	% \end{verbatim}
 	% 这样如果英文标点符号(包括西文)与后面的中文有空格的话,依旧保持一个默认的空格间距输出,不会造成多余的间距.
-	\item 改变字型大小要用\,\verb|\par|\,来调整行距
+	\item 改变字型大小要用\,\verb|\par|\,来调整行距\\
 	\textsf{错误}:\eop
 	\begin{verbatim}
 		\mytext
@@ -399,7 +401,7 @@ cal=pxtx]{mathalpha}                % 数学花体设置
 
 	{\linespread{1}\selectfont\lipsum[1]\par}
 
-	同样,修改行距后,需要在段落后面加上命令\,\verb|\par|,行距修改方法参考\stcite{\textbf{4.2.10 行距}}{6}.\eop
+	同样,修改行距后,需要在段落后面加上命令\,\verb|\par|,更多关于行距修改内容参考\stcite{\textbf{4.2.10 行距}}{6}.\eop
 \end{compactitem}
 
 \section{数字}
@@ -412,7 +414,7 @@ cal=pxtx]{mathalpha}                % 数学花体设置
 		整数部分每三位一组,以``,''分节,小数部分不分节.四位以内的整数可以不分节,例如,\eop
 		$$ 624,000\qquad 92,300,000\qquad 19,351.123456\qquad 1235$$
 		\item 千分空\\
-		从小数点起,向左和向右每三位数字一组,组间空四分之一个汉字,即二分之一个阿拉伯数字的位置.四位以内的整数可以不加千分空.严格遵循这样的要求比较麻烦,建议采用宏包 \verb|siunitx| 的命令 \verb|\num| 实现分节,例如,\eop
+		从小数点起,向左和向右每三位数字一组,组间空四分之一个汉字,即二分之一个阿拉伯数字的位置.四位以内的整数可以不加千分空.严格遵循这样的要求比较麻烦,建议采用宏包\,\verb|siunitx|\,的命令\,\verb|\num|\,实现分节,例如,\eop
 		$$ \num{624000}\qquad \num{92300000}\qquad \num{19351.123456}\qquad \num{1235}$$
 	\end{compactenum}
 	\item 概数和约数\\
@@ -430,20 +432,26 @@ cal=pxtx]{mathalpha}                % 数学花体设置
 	\end{center}
 \end{compactitem}
 
+% ,\verb|AAA|\,你好
+
+% , \verb|AAA|\,你好 ✔
+
+% ,\,\verb|AAA|\,你好
+
 %另外, \verb|\num|默认的最小分节位数为五位,如果数字是四位的话加入\,\verb|[group-minimum-digits=4]|\,选项(具体参考\scite{12}).
 
 \section{单位}\label{sec:dw}
 \begin{compactitem}[\hspace{1.02em}$\bullet$]
 	\item 单位符号与数值之间应有一个四分之一的间距.唯一的特例是角度的度、分、秒符号: $^{\circ}$, $'$, $''$,例如, $\alpha=\ang{1;2;3}$.不过摄氏度符号前仍然应该加上四分之一汉字间距,例如, $t=25\dw{\celsius}$,而非$t=25\si{\celsius}$.\\
-	建议使用 \verb|siunitx| 宏包的 \verb|\si| 命令,不过在英文中数字与单位之间一般都有空格间隔(除了上述特例之外),所以在数学模式中当数字与 \verb|\si| 连用时,中间是没有间距的,所以可以自定义一个命令:\\
+	建议使用\,\verb|siunitx|\,宏包的\,\verb|\si|\,命令,不过在英文中数字与单位之间一般都有空格间隔(除了上述特例之外),所以在数学模式中当数字与\,\verb|\si|\,连用时,中间是没有间距的,所以可以自定义一个命令:\\
 	\verb|    \newcommand{\dw}[2][0.25\ccwd]{\hspace{#1}\si{#2}}|.\\
-	\textsf{争议}: SI (Système International d'Unités)认为凡是单位就要留白,唯一例外是度、分、秒符号.有的人在写作中对摄氏温度符号和百分号并不留白.而百分号并非SI认定的单位,但在 \verb|siunitx| 有定义百分号.所以,如果有明确要求则按照明确要求写作,如果没有,则按照除度、分、秒符号外的单位都留白的准则.\\
+	\textsf{争议}: SI (Système International d'Unités)认为凡是单位就要留白,唯一例外是度、分、秒符号.有的人在写作中对摄氏温度符号和百分号并不留白.而百分号并非SI认定的单位,但在\,\verb|siunitx|\,有定义百分号.所以,如果有明确要求则按照明确要求写作,如果没有,则按照除度、分、秒符号外的单位都留白的准则.\\
 	\item 单位的组合\\
 	\textsf{糟糕}: $\mathrm{Nm}$\quad $\mathrm{ms}^{-1}$\\
 	\sisetup{inter-unit-product = \ensuremath { { } \cdot { } } }
 	\textsf{正确}: $\si{\newton\meter}$\quad $\si{m/s}$\\
-	也有一些出版社要求不使用点式组合.推荐使用 \verb|siunitx| 宏包,可以设定组合单位方式,一旦要求变更,只需要更改设置即可,而不需要单独修改每一个单位.\\
-	在《国际单位制》、ISO-31、GB-3100、GB-3101和GB-3102上找到完整的单位列表,如果一个量可以有多个符号来表示,总是使用第一个列出的,在此列出一些频繁用错的量和单位符号.\eop
+	也有一些出版社要求不使用点式组合.推荐使用\,\verb|siunitx|\,宏包,可以设定组合单位方式,一旦要求变更,只需要更改设置即可,而不需要单独修改每一个单位.\\
+	在《国际单位制》、ISO-31、GB-3100、GB-3101和GB-3102上有完整的单位列表,如果一个量可以有多个符号来表示,总是使用第一个列出的,在此列出一些频繁用错的量和单位符号.\eop
 	\begin{compactenum}
 		\item 用符号$\delta$表示厚度, $d$表示直径.在国家标准中,厚度的首选量符号是$d$,这样就和直径的量符号产生了冲突(我们的原则是一个量符号尽可能只赋于一个含义).考虑到$d$被更普遍的用来表示直径,我们推荐用$\delta$表示厚度.
 		\item 在向国际出版社投稿时,不应该使用单位n mile (海里),因为这一符号在国际上并不被认可.
@@ -487,7 +495,8 @@ cal=pxtx]{mathalpha}                % 数学花体设置
 	\begin{compactenum}
 		\item 单位,例如, \si{\um}, \si{mL}.
 		\item 化学元素,例如, O表示氧, C表示碳.
-		\item 数学常数,例如, $\mathrm{j}=\sqrt{-1}$, $\mathrm{e}=\num{2.7182818}\ldots$.
+		\item 数学常数,例如, $\mathrm{j}=\sqrt{-1}$, $\mathrm{e}=\num{2.7182818}\ldots$\\
+		\textit{小声哔哔:话虽如此,但$e^{-j\pi}$要比$\mathrm{e}^{-\mathrm{j}\pi}$好看.}
 		\item 已定义的函数,例如, $\sin x$, $\exp x$.\eop
 	\end{compactenum}
 	\item 其他已定义的函数名,对于常用的函数建议通过宏定义(需导入宏包\texttt{amsmath},可参考\scite{27}):\\
@@ -504,7 +513,7 @@ cal=pxtx]{mathalpha}                % 数学花体设置
 	\textsf{糟糕}: $\sin(n\pi)$\\
 	\textsf{正确}: $\sin n\pi$\\
 	当函数的名字有两个或更多的字母组合且自变量不含有$+$, $-$等运算符时,括号可以省略;但如果后面有其他函数项的话加上括号可读性更强.
-	\item 向量和矩阵采用粗斜体表示,例如$\bm{A}$和$\bm{a}$ (对比非粗体$A$和$a$).粗体命令为 \verb|\boldsymbol|,或者采用 \verb|bm| 宏包\dcite{9}的 \verb|\bm| 命令,一般来说使用后者更好,二者的优劣比较参见\dcite{11}(注意 \verb|bm| 宏包会重定义 \verb|\boldsymbol| 命令).如果使用unicode数学宏包 \verb|unicode-math|,可以用 \verb|\symbf| 命令加粗,具体参考宏包手册\scite{10}.如果使用没有设计粗体的数学字体,则加粗是伪加粗(poor man's bold),效果一般,最好使用有设计粗体的数学字体(可以参考\dcite{10}提供的字体选择,一般使用默认的Computer Modern即可).
+	\item 向量和矩阵采用粗斜体表示,例如$\bm{A}$和$\bm{a}$ (对比非粗体$A$和$a$).粗体命令为\,\verb|\boldsymbol|,或者采用\,\verb|bm|\,宏包\dcite{9}的\,\verb|\bm|\,命令,一般来说使用后者更好,二者的优劣比较参见\dcite{11}(注意\,\verb|bm|\,宏包会重定义\,\verb|\boldsymbol|\,命令).如果使用unicode数学宏包\,\verb|unicode-math|,可以用\,\verb|\symbf|\,命令加粗,具体参考宏包手册\scite{10}.如果使用没有设计粗体的数学字体,则加粗是伪加粗(poor man's bold),效果一般,最好使用有设计粗体的数学字体(可以参考\dcite{10}提供的字体选择,一般使用默认的Computer Modern即可).
 	\item 微分号$\mathrm{d}$保持直立,虽然很多外文用的是斜体$d$ (Donald Knuth\dcite{7}本人用的也是斜体),但采用正体是国际标准所推崇的.一般而言偏微分号$\partial$则保持斜体.在积分式中, $\mathrm{d}$的前面还应该保留一点间距.\eop
 	\begin{center}
 		{\renewcommand\arraystretch{1.8}
@@ -513,7 +522,7 @@ cal=pxtx]{mathalpha}                % 数学花体设置
 			\verb|\int\!\!f(x)\dif x|         & $\displaystyle \int\!\!f(x)\dif x$  & \ding{51}\\
 		\end{tabular}}
 	\end{center}
-   微分号可以通过宏 \verb|\newcommand*{\dif}{\mathop{}\!\mathrm{d}}|定义,参考\scite{3,28};或者采用 \verb|physics| 宏包的 \verb|\dd| 命令,具体参见宏包手册\scite{8}.\eop
+   微分号可以通过宏\,\verb|\newcommand*{\dif}{\mathop{}\!\mathrm{d}}|定义,参考\scite{3,28};或者采用\,\verb|physics|\,宏包的\,\verb|\dd|\,命令(参见\scite{8}).\eop
     \item 积分号后加入一段负间距\,\verb|\!\!|\,使得公式更加紧凑美观(各种长度定义参见\dtcite{\textbf{2.7长度设置}}{6}).\eop
     \begin{center}
 		{\renewcommand\arraystretch{1.8}
@@ -525,8 +534,8 @@ cal=pxtx]{mathalpha}                % 数学花体设置
 			\verb|\int_1^2\!\!\!\int_1^2\!\!f(x)\dif x|  & $\displaystyle \int_1^2\!\!\!\int_1^2\!\!f(x)\dif x$ & \\
 		\end{tabular}}
 	\end{center}
-	\textsf{注}:负间距也可以选择\,\verb|\!|,视情况而定;二重积分号之间的负间距也可以是 \verb|\!\!\!|,由排版者自行掌控.\eop
-	\item 同时有上下标的符号,应多加一对花括号 \verb|{}| 使得上下标对齐.\eop
+	\textsf{注}:负间距也可以选择\,\verb|\!|,视情况而定;二重积分号之间的负间距也可以是\,\verb|\!\!\!|,由排版者自行掌控.\eop
+	\item 同时有上下标的符号,应多加一对花括号\,\verb|{}|\,使得上下标对齐.\eop
 	\begin{center}
 		\begin{tabular}{lrc}
 			\verb|\bm{P}  _1^2|         & $\displaystyle \bm{P}_1^2$  & \ding{55}\\
@@ -549,24 +558,24 @@ cal=pxtx]{mathalpha}                % 数学花体设置
 	\textsf{糟糕}:我们来看一个简单的分式$\frac{1}{2}$.\\
 	\textsf{糟糕}:我们来看一个简单的分式$\displaystyle \frac{1}{2}$.\\
 	\textsf{正确}:我们来看一个简单的分式$1/2$.\\
-	第一行的例子是糟糕的是因为分式的可读性大大降低了.第二行在数学环境中添加了 \verb|\displaystyle| 命令(详细参考\stcite{300页}{6}),使得行内公式与行间公式一致,更糟糕是因为它破坏了行距的统一性,不过这一做法在国内颇为普遍,这得``归功于''方正排版系统,在Microsoft Word中用Mathtype插件也存在这样的问题,推荐的做法是使用$1/2$这样的样式.\\
+	第一行的例子是糟糕的是因为分式的可读性大大降低了.第二行在数学环境中添加了\,\verb|\displaystyle|\,命令(详细参考\stcite{300页}{6}),使得行内公式与行间公式一致,更糟糕是因为它破坏了行距的统一性,不过这一做法在国内颇为普遍,这得``归功于''方正排版系统,在Microsoft Word中用Mathtype插件也存在这样的问题,推荐的做法是使用$1/2$这样的样式.\\
 	行间公式的上、下标,分式中的分子和分母也应该采用行内样式,例如,
 	$$x^{1/2},\quad \frac{x/y}{z/y}.$$
-	一个类似的现象是过度使用 \verb|\limits| 命令.按照\LaTeX{}的默认设置往往能够得到更好的结果,例如,使用$\lim_{x\to 3}x^2=0$而非$\lim\limits_{x\to 3}x^2=0$;使用$\sum_{i=1}^n n$而非$\sum\limits_{i=1}^n n$.当然了,行距允许的话这取决于排版者的喜好(不过正如你所见,这段文字的行距已经不和谐了),但不要在行内公式使用行间公式样式,例如, $\displaystyle \sum_{i=1}^n n$.
+	一个类似的现象是过度使用\,\verb|\limits|\,命令.按照\LaTeX{}的默认设置往往能够得到更好的结果,例如,使用$\lim_{x\to 3}x^2=0$而非$\lim\limits_{x\to 3}x^2=0$;使用$\sum_{i=1}^n n$而非$\sum\limits_{i=1}^n n$.当然了,行距允许的话这取决于排版者的喜好(不过正如你所见,这段文字的行距已经不和谐了),但不要在行内公式使用行间公式样式,例如, $\displaystyle \sum_{i=1}^n n$.
 	\item 合理使用行内和行间公式\\
 	\textsf{糟糕}:我们可以得到$f(x)=(4 / \pi) \sum_{k=1}^{\infty}\left(\sin \left(2 k-1\right) x /\left(2 k-1\right)\right)$.\\
 	\textsf{正确}:我们可以得到
 	$$
 	f(x)=\frac{4}{\pi} \sum_{k=1}^{\infty} \frac{\sin (2 k-1) x}{2 k-1}\mpunct{.}
 	$$
-	\item 有时候命令 \verb|\left| 和 \verb|\right| 得到的效果并不理想,需要手动采用 \verb|\big|, \verb|\bigg|, \verb|\Big|和 \verb|\Bigg| 控制.\eop
+	\item 有时候命令\,\verb|\left|\,和\,\verb|\right|\,得到的效果并不理想,需要手动采用\,\verb|\big|, \verb|\bigg|, \verb|\Big|和\,\verb|\Bigg|\,控制.\eop
 	% \item % \middle
 	% \item
 \end{compactitem}
 
 \subsection{多行公式与折行}
 \begin{compactitem}[\hspace{1.02em}$\bullet$]
-	\item 多行对齐公式环境下 \verb|&| 置于$=$ (或其他符号)之前,以得到正确的间隔(其他二元符号也是如此).\eop
+	\item 多行对齐公式环境下\,\verb|&|\,置于$=$ (或其他符号)之前,以得到正确的间隔(其他二元符号也是如此).\eop
 	\begin{verbatim}
 		\begin{aligned}
 			f(t)= & \mathrm{e}^{-t}(\sin2t+2\sin4t)\\
@@ -581,7 +590,7 @@ cal=pxtx]{mathalpha}                % 数学花体设置
 			\end{aligned}$ & \ding{55}\\
 		\end{tabular}
 	\end{center}
-	因为$=$位于 \verb|&| 之前,起不到二元符号的作用,所以$=$两边间距不正确,可以调换$=$和 \verb|&| 的顺序或在$=$后添加一对花括号(参见\scite{23}).\eop
+	因为$=$位于\,\verb|&|\,之前,起不到二元符号的作用,所以$=$两边间距不正确,可以调换$=$和\,\verb|&|\,的顺序或在$=$后添加一对花括号(参见\scite{23}).\eop
 	\begin{verbatim}
 		\begin{aligned}
 			f(t) & =\mathrm{e}^{-t}(\sin2t+2\sin4t)\\
@@ -652,7 +661,7 @@ f(t) & =\mathrm{e}^{-t}(\sin2t+2\sin4t)+\\
 \subsection{内置环境}
 数学排版应该导入宏包\texttt{amsmath}, \texttt{amssymb}, \texttt{amsthm},否则有些数学环境无法使用.\eop
 \begin{compactitem}[\hspace{1.02em}$\bullet$]
-	\item 分段函数采用内置环境 \verb|cases| 输入.\eop
+	\item 分段函数采用内置环境\,\verb|cases|\,输入.\eop
 	\begin{verbatim}
 		f(x)=\frac{\alpha \beta}{\alpha+\beta}
 		\left{\begin{array}{ll}
@@ -683,7 +692,7 @@ f(t) & =\mathrm{e}^{-t}(\sin2t+2\sin4t)+\\
 				 x^{-\alpha-1}, & x \geqslant 1\,.\end{cases}$ & \ding{51}\\
 		\end{tabular}
 	\end{center}
-	注意公式末尾的标点符号前面添加了一个小间距\,\verb|\,|,如前文(第\,\hyperref[hjjjpage]{\pageref*{hjjjpage}}\,页)所述,这样是为了避免混淆和标点的挤压;注意与另一规则相区分——数学式内部的标点符号是在后面添加小间距\,\verb|\,|,这是为了使间距统一,但最好是以标点为分隔,将数学式分开写(第\,\hyperref[hnbd]{\pageref*{hnbd}}\,页).
+	注意公式末尾的标点符号前面添加了一个小间距\,\verb|\,|,如前文(见第\,\hyperref[hjjjpage]{\pageref*{hjjjpage}}\,页)所述,这样是为了避免混淆和标点的挤压;注意与另一规则相区分——数学式内部的标点符号是在后面添加小间距\,\verb|\,|,这是为了使间距统一,但最好是以标点为分隔,将数学式分开写(见第\,\hyperref[hnbd]{\pageref*{hnbd}}\,页).
 	\item 矩阵采用内置环境输入,具体参考\stcite{282页}{6}.\eop
 	\begin{verbatim}
 		\left[\begin{array}{cc}
@@ -713,7 +722,7 @@ f(t) & =\mathrm{e}^{-t}(\sin2t+2\sin4t)+\\
 					\end{bmatrix}$ & \ding{51}\\
 			\end{tabular}
 		\end{center}
-	或者使用 \verb|physics| 宏包命令 \verb|\mqty[a & b \\ c & d]|.\eop
+	或者使用\,\verb|physics|\,宏包命令\,\verb|\mqty[a & b \\ c & d]|.\eop
 	\begin{center}
 		\begin{tabular}{lr}
 			$\displaystyle \mqty[a & b \\ c & d]$ & \ding{51}\\
@@ -726,7 +735,7 @@ f(t) & =\mathrm{e}^{-t}(\sin2t+2\sin4t)+\\
 	\item 线段\\
 	\textsf{糟糕}:线段 $\overline{A B}$ 的长度为 $A B=4 \dw{cm}$.\\
 	\textsf{正确}:线段 $A B$ 的长度为 $|A B|=4 \dw{cm}$.\\
-	符号 $\overline{A B}$ 由 $A B$ 取代, 其长度使用``$|A B|$''表示. 我们还规定有向线段 $\overrightarrow{A B}$ 的数 量也可以用 $A B$ 表示. 一般地, ``$|A B|=5$''表示线段 $A B$ 的长为5, 而 ``$A B=4$ ''则表示有向 线段 $\overrightarrow{A B}$ 的数量为4.
+	符号 $\overline{A B}$ 由 $A B$ 取代, 其长度使用``$|A B|$''表示. 我们还规定有向线段 $\overrightarrow{A B}$ 的数 量也可以用 $A B$ 表示. 一般地, ``$|A B|=5$''表示线段 $A B$ 的长为5, 而``$A B=4$''则表示有向 线段 $\overrightarrow{A B}$ 的数量为4.
 	\item 弧\\
 	\textsf{糟糕}: $\stackrel{\frown}{AB}$的长度为$4\dw{cm}$.\\
 	\textsf{正确}:弧$AB$的长度为$4\dw{cm}$\\
@@ -734,7 +743,7 @@ f(t) & =\mathrm{e}^{-t}(\sin2t+2\sin4t)+\\
 	\item 平行\\
 	\textsf{糟糕}: $a \,/\!\!\!\:/\, b$\\
 	\textsf{正确}: $a\parallel b$\\
-	使用$\parallel$而非$\,/\!\!\!\:/\,$的原因在于我们可以很容易的获得符号$\nparallel$,避免使用``平行且相等''这一符号.\eop
+	使用$\parallel$而非$/\!\!\!\:/$的原因在于我们可以很容易的获得符号$\nparallel$,避免使用``平行且相等''这一符号.\eop
 \end{compactitem}
 
 \subsection{集合}
@@ -781,7 +790,7 @@ f(t) & =\mathrm{e}^{-t}(\sin2t+2\sin4t)+\\
 
 \subsection{杂类符号}
 \begin{compactitem}[\hspace{1.02em}$\bullet$]
-	\item 两种冒号\\
+	\item 两种冒号
 	\begin{center}
 		\begin{tabular}{lrc}
 			\verb|\{\, x \colon x \notin x \,\}|  & $\displaystyle \{\, x \colon x \notin x \,\}$ & \ding{55}\\
@@ -806,7 +815,7 @@ f(t) & =\mathrm{e}^{-t}(\sin2t+2\sin4t)+\\
 	\item 括号\\
 	\textsf{糟糕}: $f[g(x)]$\\
 	\textsf{正确}: $f\bigl((g(x)\bigr)$\\
-	不使用传统的圆括号外套中括号,中括号外套大括号的习惯,而是在圆括号外套更大一点的圆括号. Donald Knuth道:\!\,``The world is short of delimiters.''另一个原因是不少人使用记号$[a]$表示小于或等于$a$的最大整数,这会导致不必要的误解.\\
+	不使用传统的圆括号外套中括号,中括号外套大括号的习惯,而是在圆括号外套更大一点的圆括号. Donald Knuth道:\,``The world is short of delimiters.''另一个原因是不少人使用记号$[a]$表示小于或等于$a$的最大整数,这会导致不必要的误解.\\
 	\textsf{注}:此准则为\dcite{1}中所有,但笔者并非完全认同,采用小括号、中括号和花括号的形式便于分辨;而如果只使用小括号,对小括号的大小控制过于繁琐.有一种折中方案是只使用小括号和花括号两级嵌套,如式\deqref{equ:1}所示.此准则由读者自行评判,只要保持全文的形式统一即可.\eop
 	\begin{equation}\label{equ:1}
 		\begin{aligned}
@@ -828,7 +837,7 @@ f(t) & =\mathrm{e}^{-t}(\sin2t+2\sin4t)+\\
 	\textsf{正确}: $\operatorname{ent} a$\\
 	诸如 $[(1+2)-3]$ 的表达在数学书中颇为普遍. ent的使用可以减少误解.
 	\item 除号\\
-	对于一些需要用到斜除号的地方,如果斜除号两边的字符比较高,用常规的\,\verb|/|\,会导致式子很不协调,这个时候可以使用\,\verb|\middle/|来使得斜除号的高度与两侧字符高度相匹配,例如,
+	对于一些需要用到斜除号的地方,如果斜除号两边的字符比较高,用常规的\,\verb|/|\,会导致式子很不协调,这个时候可以使用\,\verb|\middle/|来使得斜除号的高度与两侧字符高度相匹配,例如,\eop
 	\begin{verbatim}
 		\begin{align*}
 			x &= a^\frac{1}{2}/b\\
@@ -852,9 +861,9 @@ f(t) & =\mathrm{e}^{-t}(\sin2t+2\sin4t)+\\
 	\textsf{正确}: $\exp x$\\
 	对于$\mathrm{e}$指数项很冗长的数学公式更应该采用$\exp$记号.
 	\item 函数的幂次\\
-	\textsf{糟糕}: $\left(\sin(x)\right)^2$\\
+	\textsf{糟糕}: $\bigl(\sin(x)\bigr)^2$\\
 	\textsf{正确}: $\sin[2](x)$\\
-	可以使用 \verb|physics| 宏包命令 \verb|\sin[2](x)| 实现.同样的,使用 $\lg^2 x$ 而非 $(\lg x)^{2}, f^{2}(x)$ 而非 $\left(f(x)\right)^{2}$.
+	可以使用\,\verb|physics|\,宏包命令\,\verb|\sin[2](x)|\,实现.同样的,使用 $\lg^2 x$ 而非 $(\lg x)^{2}, f^{2}(x)$ 而非 $\bigl(f(x)\bigr)^{2}$.
 	\item 反三角函数\\
 	\textsf{糟糕}: $\sin ^{-1} x$, $\operatorname{sh} x$, $\sinh ^{-1} x$\\
 	\textsf{正确}: $\arcsin x$, $\sinh x$, $\operatorname{arsinh} x$\\
@@ -862,7 +871,7 @@ f(t) & =\mathrm{e}^{-t}(\sin2t+2\sin4t)+\\
 \end{compactitem}
 
 \subsection{序号}
-英文中的序号 1st, 2nd, 3rd 等,通常用文字模式输入就可以,但是在数学中,经常会涉及「nth element,第 n 个元素」等序号问题.一般会使用连字符来表示,比如 $n$-th.有的时候可能需要使用上标的方法,那么一般使用\,\verb|$n^{\text{th}}$|.如果再强迫症一点,可以用\,\verb|$n^{\text{\tiny th}}$| 使上标稍小一些.文字模式下,可以使用\,\verb|\textsuperscript{th}|\,来显示为上标.或者使用\texttt{nth}宏包来方便输入(需要使用\texttt{[super]}选项来输入上标).\eop
+英文中的序号 1st, 2nd, 3rd 等,通常用文字模式输入就可以,但是在数学中,经常会涉及「nth element,第 n 个元素」等序号问题.一般会使用连字符来表示,比如 $n$-th.有的时候可能需要使用上标的方法,那么一般使用\,\verb|$n^{\text{th}}$|.如果再强迫症一点,可以用\,\verb|$n^{\text{\tiny th}}$|\,使上标稍小一些.文字模式下,可以使用\,\verb|\textsuperscript{th}|\,来显示为上标.或者使用\texttt{nth}宏包来方便输入(需要使用\texttt{[super]}选项来输入上标).\eop
 \begin{verbatim}
 	\documentclass{article}
 	\usepackage[super]{nth}
@@ -904,9 +913,9 @@ n\textsuperscript{th}
 	\textsf{正确}: $\bm{E}$
 	\item 矩阵的转置\\
 	\textsf{糟糕}: $\bm{A}^{T}$\\
-	矩阵的转置有多种写法,具体参考\scite{13}.笔者的习惯是将转置符号定义为宏 \verb|\newcommand{\T}{^\top}|.\eop
+	矩阵的转置有多种写法,具体参考\scite{13}.笔者的习惯是将转置符号定义为宏\,\verb|\newcommand{\T}{^\top}|.\eop
 	$$ \bm{A}\T$$
-	但如果内容同时出现了厄尔米特矩阵,则最好采用$\bm{A}^{\mathrm{T}}$的形式与$\bm{A}^{\mathrm{H}}$保持协调.\eop
+	但如果文章中同时出现了厄尔米特矩阵,则最好采用$\bm{A}^{\mathrm{T}}$的形式与$\bm{A}^{\mathrm{H}}$保持协调.\eop
 	\item 方阵的行列式\\
 	\textsf{糟糕}: $|\bm{A}|$\\
 	\textsf{正确}: $\det \bm{A}$\\
@@ -914,7 +923,7 @@ n\textsuperscript{th}
 	\item 范数\\
 	\textsf{糟糕}: $||\bm{A}||_{\ell}$\\
 	\textsf{正确}: $\Vert\bm{A}\Vert_{\ell}$\\
-	范数符号采用 \texttt{\textbackslash{}|} 键入,而非 \texttt{||}; \verb|\Vert|\,也可以键入范数符号(参见\scite{15}).推荐使用 \verb|physics| 中的 \verb|\norm| 命令(具体参考\scite{8}).\eop
+	范数符号采用 \texttt{\textbackslash{}|} 键入,而非 \texttt{||}; \verb|\Vert|\,也可以键入范数符号(参见\scite{15}).推荐使用\,\verb|physics|\,中的\,\verb|\norm|\,命令(具体参考\scite{8}).\eop
 	\item 线性变换\\
 	矩阵分析中线性变换一般用数学手写花体\,\verb|\mathscr|\,命令(需要导入\texttt{mathrsfs}宏包),例如, $\mathscr{A}$.还可以通过\texttt{mathalpha}宏包设置各种数学花体字体.\eop
 \end{compactitem}
@@ -933,7 +942,7 @@ n\textsuperscript{th}
 \subsection{其他}
 \begin{compactitem}[\hspace{1.02em}$\bullet$]
     \item 公式的编号,参考\dtcite{\textbf{8.4.15 公式的序号}}{6}以及\scite{20}.
-    \item 建议阅读\dtcite{第8章}{6},对数学式的排版颇有益处.\eop
+    \item 建议阅读\dtcite{\textbf{第8章}}{6},对数学式的排版颇有益处.\eop
     \item 使用\texttt{amsthm}宏包内置的数学环境.\eop
 \end{compactitem}
 
@@ -980,7 +989,7 @@ n\textsuperscript{th}
 
 \section{字体}
 \subsection{字体选择与搭配}
-排版中字体的协调统一是十分关键的.一般有四种字体(实际上不止):正文罗马族字体(mainfont)、正文无衬线字体(sansfont)、正文等宽字体(monofont)和数学字体;中英文各一套,加上\texttt{xeCJk}可以设置标点符号字体(一般默认与正文罗马族字体一样即可),中英文混排下一共有九种字体可以设置.一般我们需要设置中英文各自正文罗马族字体、正文无衬线字体、正文等宽字体以及英文的数学字体即可.\eop
+排版中字体的协调统一是十分关键的.一般有四种字体(实际上不止):正文罗马族字体(mainfont)、正文无衬线字体(sansfont)、正文等宽字体(monofont)和数学字体;中英文各一套,加上\texttt{xeCJK}宏包可以设置标点符号字体(一般默认与正文罗马族字体一样即可),中英文混排下一共有九种字体可以设置.一般我们设置中英文各自的正文罗马族字体、正文无衬线字体、正文等宽字体以及英文的数学字体即可.\eop
 
 当然了,也可以采用默认的配置,宏包\texttt{C\TeX}自带字体集选项(\texttt{windows}, \texttt{mac}等,参考\scite{16}),直接使用默认的系统字体即可.西文字体则是默认的Donald Knuth用\,\hologo{METAFONT}\,设计的Computer Modern字体集.\eop
 
@@ -1001,7 +1010,7 @@ Windows系统自带的宋体、楷书和黑体都是历史遗留产物,其中的
 	\end{tabular}
 \end{table}
 
-\texttt{C\TeX}可以设置对没有粗体字重的字体实现伪加粗(插值实现),还有类似的伪斜体.这种实现并不好,因为会出现错误,影响显示的效果.对这个问题的解决是使用有加粗字重的字体,例如,开源的思源宋体和思源黑体的字重类型十分完善.遗憾的是大部分方正字体的设计不是配套的而是单一的,虽然有方正粗宋,但其字重过粗,不适合;一个比较好的解决方案都是用黑体字体代替粗体字体,或者使用方正小标宋字体.对于中文无衬线字体和等宽字体我们一般不加粗.对中文字体一般不用斜体.\eop
+\texttt{C\TeX}可以设置对没有粗体字重的字体实现伪加粗(插值实现),还有类似的伪斜体.这种实现并不好,因为会出现错误,影响显示的效果.对这个问题的解决是使用有加粗字重的字体,例如,开源的思源宋体和思源黑体的字重类型十分完善.遗憾的是大部分方正字体的设计不是配套的而是单一的,虽然有方正粗宋,但其字重过粗,不适合;一个比较好的解决方案都是用黑体字体代替粗体字体,或者使用方正小标宋字体.对于中文无衬线字体和等宽字体我们一般不加粗;中文字体一般不用斜体(用楷体代替).\eop
 
 下面是方正新书宋与中易宋体的对比,孰优孰劣一目了然.\eop
 
@@ -1026,6 +1035,9 @@ Windows系统自带的宋体、楷书和黑体都是历史遗留产物,其中的
 	{\Huge \songti\textbf{伪加粗字体}}
 \end{minipage}
 
+\vspace{6pt}
+字体是一个部分庞杂且艰深的话题,这里难以展开,有兴趣的读者可以参考\dtcite{\textbf{第3章~字体}}{6}和对数学字体的介绍的\scite{31}.\eop
+
 \subsection{数学模式中改变字体大小}
 \textsf{错误}:\eop
 \begin{verbatim}
@@ -1043,7 +1055,7 @@ $$\huge f(x,y)=\frac{3(x+y)y}{(2xy-7)}$$
 
 \verb|Command \huge invalid in math mode.|
 
-要改变数学模式中的字体大小,可以使用数学模式下专用的指令,或者将改变字体大小的指令移出数学模式外.以下是能用於数学模式的指令:\eop
+要改变数学模式中的字体大小,可以使用数学模式下专用的指令,或者将改变字体大小的指令移出数学模式外.以下是能用于数学模式的指令:\eop
 \begin{center}
 	\begin{tabular}{cc}
 		\toprule
@@ -1051,7 +1063,7 @@ $$\huge f(x,y)=\frac{3(x+y)y}{(2xy-7)}$$
 		\verb|\displaystyle|        &  正常大小字体的展式数式 \\
 		\verb|\scriptstyle|         &  缩小成上下标字体的大小 \\
 		\verb|\scriptscriptstyle|   &  缩小二倍上下标字体的大小 \\
-		\verb|\textstyle|           &  回复成正常字体大小 \\ \bottomrule
+		\verb|\textstyle|           &  恢复成正常字体大小 \\ \bottomrule
 	\end{tabular}
 \end{center}
 有导入\texttt{amsmath}套件的话,可以在\,\verb|\text{}|\,中使用文字模式下的字型命令:\eop
@@ -1069,11 +1081,21 @@ $\Scale[1.2]{f(x,y)=\frac{3(x+y)y}{(2xy-7)}}$
 \end{verbatim}
 字体尺寸的修改具体可参考\stcite{\textbf{3.3 字体尺寸命令}}{6}.\eop
 
+% \newcommand{\test}[1]{测试这个字符\textbf{#1}
+% 的加粗命令
+% }
 \section{技巧}
 \begin{compactitem}[\hspace{1.02em}$\bullet$]
-	\item 一般拿到一个模板,编译会报一堆错误,要学会在\!\,\texttt{.log}文件中查找错误原因.如果模板并非那种年久失修的,一般问题都出现在宏包安装不全或者字体配置问题上.
-    \item 临时调整行距可用\,\verb|\vadjust{\vspace{高度}}|\,命令控制.
-    \item 命令定义 TODO
+	\item 一般拿到一个模板,编译会报一堆错误,要学会在\!\,\texttt{.log}文件中查找错误原因,从第一个错误开始处理,因为后面的很多报错往往是第一个报错原因引起的.如果模板并非那种年久失修的,一般问题都出现在宏包安装不全或者字体配置问题上.
+    \item 临时调整行距可用\,\verb|\vadjust{\vspace{高度}}|\,命令控制.\eop
+    % \item 多行命令第一最好在行末添加注释符号,否则换行可能被解释为空格.\\
+    % \textsf{错误}:\eop
+	% \begin{verbatim}
+	% 	\newcommand{\test}[1]{测试这个字符\textbf{#1}
+	% 	的加粗命令
+	% 	}
+	% \end{verbatim}
+	% 测试\test{加粗}命令
 \end{compactitem}
 
 \section{宏包}
@@ -1083,6 +1105,7 @@ $\Scale[1.2]{f(x,y)=\frac{3(x+y)y}{(2xy-7)}}$
 \usepackage{hyperref}
 \usepackage{url}
 \end{verbatim}
+
 \textsf{正确}:\eop
 \begin{verbatim}
 \usepackage{hyperref}
@@ -1097,17 +1120,15 @@ $\Scale[1.2]{f(x,y)=\frac{3(x+y)y}{(2xy-7)}}$
 \usepackage[hyphens]{url}
 \usepackage{hyperref}
 \end{verbatim}
-当然,新一点的宏包都会设计得比较周详,在宏包载入后,还可以用\,\verb|\*setup| 之类的指令来变更及设定一些选项的参数.例如\texttt{hyperref}的\,\verb|\hypersetup|\,以及\,\verb|mdframed|\,的\,\verb|\mdsetup|.\eop
+当然,新一点的宏包都会设计得比较周详,在宏包载入后,还可以用\,\verb|\*setup|\,之类的指令来变更及设定一些选项的参数.例如\texttt{hyperref}的\,\verb|\hypersetup|\,以及\,\verb|mdframed|\,的\,\verb|\mdsetup|.\eop
 
 \subsection{参考文献}
-
-TODO
-
+中文参考文献遵照GB/T 7714-2005标准,采用\dcite{32}宏包或\dcite{33}模块,前者简单好上手,与\texttt{natbib}兼容;后者功能丰富,可定制性更强.
 
 \section{精细控制}
 此节可略过不读,笔者自己都觉得这种控制过于``变态''.\eop
 
-宏包\texttt{C\TeX{}}的底层宏包之一是 \verb|xeCJK|,参数 \verb|CJKecglue| 定义了CJK文字与西文(参见\scite{16})、CJK文字与行内数学公式之间的间距,默认值是一个空格.笔者认为这个间距过大,将其修改为\,\verb|\,|间距大小(附加一段弹性长度):\eop
+宏包\texttt{C\TeX{}}的底层宏包之一是\,\verb|xeCJK|,参数\,\verb|CJKecglue|\,定义了CJK文字与西文(参见\scite{16})、CJK文字与行内数学公式之间的间距,默认值是一个空格.笔者认为这个间距过大,将其修改为\,\verb|\,|间距大小(附加一段弹性长度):\eop
 \begin{verbatim}
 \xeCJKsetup{
 CJKecglue={\hskip 0.1667em plus 0.08\baselineskip},
@@ -1128,129 +1149,13 @@ xCJKecglue=true  % 调控西文与中文之间过多的空格
 
 另一副作用是英文标点与中文之间的间距缩小,如果仍然要保持为一个空格,有三种方法:\eop
 \begin{compactitem}[\hspace{1.02em}$\bullet$]
-	\item \verb|xeCJK| 无法调控英文标点的间距,但可以调整中文标点的间距,再映射为英文标点,但这样的话在输入时需要频繁地切换输入法,并不方便.可以考虑用编程语言写一个脚本进行后处理.
-	\item 将\,\verb|xCJKecglue|\,设置为 \verb|false|,并在每个英文标点符号后面添加空格,那么这个间距就会是一个空格间距;但是西文和中文之间不可有间距,否则这个间距也会变成一个空格.
+	\item \verb|xeCJK|\,无法调控英文标点的间距,但可以调整中文标点的间距,再映射为英文标点,但这样的话在输入时需要频繁地切换输入法,并不方便.可以考虑用编程语言写一个脚本进行后处理.
+	\item 将\,\verb|xCJKecglue|\,设置为\,\verb|false|,并在每个英文标点符号后面添加空格,那么这个间距就会是一个空格间距;但是西文和中文之间不可有间距,否则这个间距也会变成一个空格.
 	\item 较好的解决方案是利用\texttt{\Hologo{XeTeX}}的内建机制处理间距,但存在一个小bug,暂时无法解决,参见第\dref{sec:plainpunct}节.\eop
 \end{compactitem}
 
 \section{\ttfamily plainpunct.sty}\label{sec:plainpunct}
-\begin{lstlisting}[style=docstrip]
-%% plainpnct.sty
-%% 中英文混排采用英文标点符号,对plain标点的间距控制
-%% Junxu Wang
-%% v1.0 2021-12-17
-%% v1.1 2021-12-18
-%% 取消0类字符集与plain标点字符集的间距设置
-%% 修改plain标点字符集的与0类字符集的弹性间距
-
-% 在主文件先导入宏包ctex或xeCJK
-\xeCJKsetup{
-            CJKecglue  = {\hskip 0.1667em plus 0.08\baselineskip},
-			xCJKecglue = true,
-            PunctStyle = banjiao
-            }
-
-\xeCJKsetwidth{、}{0.7em}
-
-\XeTeXinterchartokenstate = 1
-
-% 重声明右半角英文符号类
-\xeCJKDeclareCharClass{HalfRight}{"22 , "25, "27 , "29, "5D , "7D , "232A}
-
-\newXeTeXintercharclass \PlainPunct
-% 西文标点
-\XeTeXcharclass "21 \PlainPunct % !
-\XeTeXcharclass "2C \PlainPunct % ,
-\XeTeXcharclass "2E \PlainPunct % .
-\XeTeXcharclass "3A \PlainPunct % :
-\XeTeXcharclass "3B \PlainPunct % ;
-\XeTeXcharclass "3F \PlainPunct % ?
-
-\newXeTeXintercharclass \NumberAlph
-% 数字
-\XeTeXcharclass "30 \NumberAlph % 0
-\XeTeXcharclass "31 \NumberAlph % 1
-\XeTeXcharclass "32 \NumberAlph % 2
-\XeTeXcharclass "33 \NumberAlph % 3
-\XeTeXcharclass "34 \NumberAlph % 4
-\XeTeXcharclass "35 \NumberAlph % 5
-\XeTeXcharclass "36 \NumberAlph % 6
-\XeTeXcharclass "37 \NumberAlph % 7
-\XeTeXcharclass "38 \NumberAlph % 8
-\XeTeXcharclass "39 \NumberAlph % 9
-% 大写字母
-\XeTeXcharclass "41 \NumberAlph % A
-\XeTeXcharclass "42 \NumberAlph % B
-\XeTeXcharclass "43 \NumberAlph % C
-\XeTeXcharclass "44 \NumberAlph % D
-\XeTeXcharclass "45 \NumberAlph % E
-\XeTeXcharclass "46 \NumberAlph % F
-\XeTeXcharclass "47 \NumberAlph % G
-\XeTeXcharclass "48 \NumberAlph % H
-\XeTeXcharclass "49 \NumberAlph % I
-\XeTeXcharclass "4A \NumberAlph % J
-\XeTeXcharclass "4B \NumberAlph % K
-\XeTeXcharclass "4C \NumberAlph % L
-\XeTeXcharclass "4D \NumberAlph % M
-\XeTeXcharclass "4E \NumberAlph % N
-\XeTeXcharclass "4F \NumberAlph % O
-\XeTeXcharclass "50 \NumberAlph % P
-\XeTeXcharclass "51 \NumberAlph % Q
-\XeTeXcharclass "52 \NumberAlph % R
-\XeTeXcharclass "53 \NumberAlph % S
-\XeTeXcharclass "54 \NumberAlph % T
-\XeTeXcharclass "55 \NumberAlph % U
-\XeTeXcharclass "56 \NumberAlph % V
-\XeTeXcharclass "57 \NumberAlph % W
-\XeTeXcharclass "58 \NumberAlph % X
-\XeTeXcharclass "59 \NumberAlph % Y
-\XeTeXcharclass "5A	\NumberAlph % Z
-% 小写字母
-\XeTeXcharclass "61 \NumberAlph % a
-\XeTeXcharclass "62 \NumberAlph % b
-\XeTeXcharclass "63 \NumberAlph % c
-\XeTeXcharclass "64 \NumberAlph % d
-\XeTeXcharclass "65 \NumberAlph % e
-\XeTeXcharclass "66 \NumberAlph % f
-\XeTeXcharclass "67 \NumberAlph % g
-\XeTeXcharclass "68 \NumberAlph % h
-\XeTeXcharclass "69 \NumberAlph % i
-\XeTeXcharclass "6A \NumberAlph % j
-\XeTeXcharclass "6B \NumberAlph % k
-\XeTeXcharclass "6C \NumberAlph % l
-\XeTeXcharclass "6D \NumberAlph % m
-\XeTeXcharclass "6E \NumberAlph % n
-\XeTeXcharclass "6F \NumberAlph % o
-\XeTeXcharclass "70 \NumberAlph % p
-\XeTeXcharclass "71 \NumberAlph % q
-\XeTeXcharclass "72 \NumberAlph % r
-\XeTeXcharclass "73 \NumberAlph % s
-\XeTeXcharclass "74 \NumberAlph % t
-\XeTeXcharclass "75 \NumberAlph % u
-\XeTeXcharclass "76 \NumberAlph % v
-\XeTeXcharclass "77 \NumberAlph % w
-\XeTeXcharclass "78 \NumberAlph % x
-\XeTeXcharclass "79 \NumberAlph % y
-\XeTeXcharclass "7A \NumberAlph % z
-
-% 西文标点与常规字符间距为一个空格
-\XeTeXinterchartoks \PlainPunct 0 = {\hskip 0.3333em%
-plus 0.08\baselineskip minus 0.08\baselineskip}
-% \XeTeXinterchartoks 0 \PlainPunct = {\hskip 0pt}
-% 添加这句会导致有些标点符号折行,出现在行首
-
-% 西文标点与数字和字母之间不添加空格
-\XeTeXinterchartoks \PlainPunct \NumberAlph = {\ignorespaces}
-
-% 常规字符与数字字母之间间距为CJKecglue
-\XeTeXinterchartoks 0 \NumberAlph = {\CJKecglue}
-\XeTeXinterchartoks \NumberAlph 0 = {\CJKecglue}
-
-% 段落行尾命令(end of paragraph)
-\newcommand{\eop}{\relax}
-% Bug:段落的末尾\PlainPunct符号集中的符号与前文的中文间距错误
-% 段落末尾添加一个\relax或间距命令可以暂时解决这个问题
-\end{lstlisting}
+\lstinputlisting[style=docstrip]{plainpunct.sty}
 
 上述控制存在一个问题,因为开启了\,\verb|xCJKecglue|\,将西文与中文之间过多的间距调整为\,\verb|\,|间距,所以plain标点与中文之间不能留有间距,否则会被调整为\,\verb|\,|的间距,例如:\eop
 \begin{center}
@@ -1273,9 +1178,9 @@ plus 0.08\baselineskip minus 0.08\baselineskip}
 
 鲁迅先生说:\,``世上本没有路,走的人多了也就成了路.''仅从字面上去理解,排版标准也是如此,它是在人们的大量实践中产生.本文所罗列的种种标准有些并非绝对的圭臬,其中也夹杂着笔者的私货,读者各取所需即可.\eop
 
-笔者才疏学浅,错误在所难免,请读者见谅.更多的细节难以一一枚举,读者若有兴趣还可以参考\scite{}最后,感谢小聪对本文的审阅与校对,还有\TeX{}的创造者Knuth D. E.和\LaTeX{}的缔造者Leslie Lamport,以及\LaTeX{}社区的众多程序员大牛!\eop
+笔者才疏学浅,错误在所难免,请读者见谅.最后,感谢小聪对本文的审阅与校对,还有\TeX{}的创造者Knuth D. E.\,和\LaTeX{}的缔造者Leslie Lamport,以及\LaTeX{}社区的众多程序员大牛!\eop
 
-\TeX{}实际上是一门图灵完备的语言,其强大之处不仅仅是排版,还有更多的功能值得读者去探索!
+\TeX{}实际上是一门图灵完备的语言,其强大之处不仅仅是排版,还有更多的功能值得读者去探索!\eop
 
 \addcontentsline{toc}{section}{参考文献}
 \begin{thebibliography}{99}
@@ -1285,11 +1190,11 @@ plus 0.08\baselineskip minus 0.08\baselineskip}
 	\bibitem{3} Liam Huang. \href{https://liam.page/2017/05/01/the-correct-way-to-use-differential-operator/}{在\LaTeX{}中使用微分算子的正确姿势}. 2020.
 	\bibitem{4} 中国生活语言绿皮书:夹用英文的中文文本的标点符号用法(草案).
     \bibitem{5} Jay Belanger, William P.\ Fox,王杰,毛紫阳.正确写作美国大学生数学建模[M], 2版.北京:高等教育出版社, 2017.
-    \bibitem{6} 胡伟. \LaTeX{} $2\varepsilon$完全学习手册[M], 2版.北京:清华大学出版社, 2013.
+    \bibitem{6} 胡伟. \hologo{LaTeX2e}\,完全学习手册[M], 2版.北京:清华大学出版社, 2013.
     \bibitem{7} Knuth D. E., Bibby D. The texbook[M]. Reading: Addison-Wesley, 1984.
     \bibitem{8} Sergio C. de la Barrera. \href{http://mirrors.ibiblio.org/CTAN/macros/latex/contrib/physics/physics.pdf}{The \texttt{physics} package}. 2012.
     \bibitem{9} David Carlisle. \href{https://mirrors.nju.edu.cn/CTAN/macros/latex/required/tools/bm.pdf}{The \texttt{bm} package}. 2021.
-    \bibitem{10} Will Robertson. \href{https://ctan.org/pkg/unicode-math}{\texttt{unicode-math} - Unicode mathematics support for \Hologo{XeTeX} and \Hologo{LuaTeX}}.
+    \bibitem{10} Will Robertson. \href{https://ctan.org/pkg/unicode-math}{\texttt{unicode-math} -- Unicode mathematics support for \Hologo{XeTeX} and \Hologo{LuaTeX}}.
     \bibitem{11} \href{https://tex.stackexchange.com/questions/3238/bm-package-versus-boldsymbol}{\texttt{bm} package versus \texttt{$\backslash$boldsymbol}}.
 	\bibitem{12} Joseph Wright. \href{https://mirrors.nju.edu.cn/CTAN/macros/latex/contrib/siunitx/siunitx.pdf}{\texttt{siunitx} -- A comprehensive (\textsc{SI}) units package}. 2021.
 	\bibitem{13} 刘海洋. \href{https://zhuanlan.zhihu.com/p/27490955}{矩阵转置的记号怎么写}? 知乎, 2017.
@@ -1309,7 +1214,10 @@ plus 0.08\baselineskip minus 0.08\baselineskip}
 	\bibitem{27} 孙孟越. \href{https://zhuanlan.zhihu.com/p/137969798}{\LaTeX{}系列笔记(3)-数学运算符Math Operator}. 2021.
 	\bibitem{28} 孙孟越. \href{https://zhuanlan.zhihu.com/p/138031765}{\LaTeX{}系列笔记(4)-微分算子要不要写正体？}. 2020.
 	\bibitem{29} 知乎. \href{https://www.zhihu.com/question/43601210}{如何评价中易宋体}?
-	\bibitem{30} Simon Fear. \href{https://mirrors.hit.edu.cn/CTAN/macros/latex/contrib/booktabs/booktabs.pdf}{\texttt{booktabs} – Publication quality tables in \LaTeX}. 2020.
+	\bibitem{30} Simon Fear. \href{https://mirrors.hit.edu.cn/CTAN/macros/latex/contrib/booktabs/booktabs.pdf}{\texttt{booktabs} -- Publication quality tables in \LaTeX}. 2020.
+	\bibitem{31} Hartke S G. A survey of free math fonts for \TeX{} and \LaTeX[J]. The PracTEX Journal, 2006 (1): 1-26.
+	\bibitem{32} Zeping Lee. \href{https://ctan.org/tex-archive/biblio/bibtex/contrib/gbt7714}{GB/T 7714-2015 \hologo{BibTeX} Style}.
+	\bibitem{33} 胡振震. \href{https://github.com/hushidong/biblatex-gb7714-2015}{符合 GB/T 7714-2015 标准的 biblatex 参考文献样式}. Github.
 \end{thebibliography}
 
 \end{document}

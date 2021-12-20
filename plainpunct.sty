@@ -97,9 +97,11 @@
 \XeTeXcharclass "7A \NumberAlph % z
 
 % 西文标点与常规字符间距为一个空格
-\XeTeXinterchartoks \PlainPunct 0 = {\hskip 0.3333em plus 0.08\baselineskip minus 0.08\baselineskip}
-% \XeTeXinterchartoks 0 \PlainPunct = {\hskip 0pt}
+\XeTeXinterchartoks \PlainPunct 0 = %
+{\hskip 0.3333em plus 0.08\baselineskip minus 0.08\baselineskip}
+
 % 添加这句会导致有些标点符号折行,出现在行首
+% \XeTeXinterchartoks 0 \PlainPunct = {\hskip 0pt}
 
 % 西文标点与数字和字母之间不添加空格
 \XeTeXinterchartoks \PlainPunct \NumberAlph = {\ignorespaces}
